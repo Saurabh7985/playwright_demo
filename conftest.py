@@ -18,5 +18,4 @@ def page(browser):
     yield page
     page.close()
 
-# @pytest.fixture
-# def log_in(page):
+

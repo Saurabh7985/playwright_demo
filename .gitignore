@@ -1,0 +1,7 @@
+venv1/
+__pycache__/
+.pytest_cache/
+.vscode/
+reports/
+*.html
+debug.png

@@ -8,14 +8,18 @@ def test_example(page: Page) -> None:
     page.get_by_role("textbox", name="Username").fill("Admin")
     page.get_by_role("textbox", name="Password").click()
     page.get_by_role("textbox", name="Password").fill("admin123")
+    page.get_by_role("textbox", name="Password").press("Enter")
     page.get_by_role("button", name="Login").click()
-    page.locator("div").filter(has_text=re.compile(r"^Dashboard$")).click()
-    page.get_by_role("listitem").filter(has_text="Nourhann Mab").locator("i").click()
+    expect(page.get_by_role("link", name="Performance")).to_be_visible()
+    page.get_by_role("link", name="Recruitment").click()
+    page.get_by_role("link", name="Maintenance").click()
+    page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/viewCandidates")
+    page.get_by_role("link", name="Dashboard").click()
+    page.get_by_role("listitem").filter(has_text="jhon use&r").locator("i").click()
     page.get_by_role("menuitem", name="Logout").click()
-    page.get_by_role("textbox", name="Password").click()
-    expect(page.get_by_role("textbox", name="Username")).to_be_visible()
-    expect(page.get_by_text("Password", exact=True)).to_be_visible()
-    page.get_by_role("textbox", name="Password").click()
-    expect(page.get_by_role("textbox", name="Password")).to_be_visible()
-    expect(page.get_by_role("textbox", name="Password")).to_be_empty();
-    expect(page.locator("form")).to_contain_text("Password")
+
+
+
+
+
+
